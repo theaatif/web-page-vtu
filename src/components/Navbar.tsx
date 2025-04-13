@@ -11,10 +11,12 @@ import {
 } from '@/components/ui/drawer';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Image from '@/components/ui/image';
+import Logo from "/logo.png"
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const isMobile = useIsMobile();
+
 
   const navLinks = [
     { href: "#home", label: "Home" },
@@ -25,15 +27,15 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 pt-2">
           <Image 
-            src="/logo/33decec9-3688-4cca-8ddf-a808f71a2104.png" 
+            src={Logo}
             alt="VTU Projects Logo" 
-            width={50} 
+            width={250} 
             height={50} 
             className="object-contain"
           />
-          <span className="text-xl font-bold text-vtu-blue hidden md:inline">VTU PROJECTS</span>
+          {/* <span className="text-xl font-bold text-vtu-blue hidden md:inline">VTU PROJECTS</span> */}
         </div>
         
         <nav className="hidden md:flex items-center space-x-8">

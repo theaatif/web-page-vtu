@@ -3,6 +3,12 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar } from '@/components/ui/avatar';
 import { Star } from 'lucide-react';
+import Image from '@/components/ui/image';
+
+import Img1 from "/1.png"
+import Img2 from "/2.png"
+import Img3 from "/3.png"
+
 
 interface Review {
   id: number;
@@ -11,6 +17,7 @@ interface Review {
   content: string;
   rating: number;
   university: string;
+  image: string;
 }
 
 const reviews: Review[] = [
@@ -18,9 +25,10 @@ const reviews: Review[] = [
     id: 1,
     name: "Rahul Sharma",
     project: "E-Learning Platform",
-    content: "Excellent service! The project was delivered on time and the setup support was amazing. Saved me a lot of time and effort for my final year presentation.",
+    content: "Excellent service! The project was delivered on time and the setup support was amazing. Saved me a lot of time for my final year presentation.",
     rating: 5,
-    university: "VTU Belgaum"
+    university: "VTU Belgaum",
+    image: Img1
   },
   {
     id: 2,
@@ -28,7 +36,8 @@ const reviews: Review[] = [
     project: "Hospital Management System",
     content: "Very affordable compared to other options in the market. The code was well-documented which helped me understand and present it confidently.",
     rating: 4,
-    university: "BMS College of Engineering"
+    university: "BMS College of Engineering",
+    image: Img2
   },
   {
     id: 3,
@@ -36,7 +45,8 @@ const reviews: Review[] = [
     project: "Smart Parking System",
     content: "Great communication throughout the project. They made several customizations for me at no extra cost. Highly recommended for final year students!",
     rating: 5,
-    university: "PES University"
+    university: "PES University",
+    image: Img3
   }
 ];
 
@@ -56,9 +66,11 @@ const ReviewCard = ({ review }: { review: Review }) => {
         </div>
         <p className="text-gray-700 mb-4">{review.content}</p>
         <div className="flex items-center gap-3">
-          <Avatar className="h-10 w-10 bg-blue-100 text-blue-600">
-            <span className="text-lg font-semibold">{review.name.charAt(0)}</span>
-          </Avatar>
+        <Image 
+            src={review.image} 
+            alt={review.name} 
+            className="h-10 w-10 rounded-full object-cover" 
+          />
           <div>
             <p className="font-semibold">{review.name}</p>
             <p className="text-sm text-gray-600">{review.university}</p>
